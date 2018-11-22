@@ -1,0 +1,79 @@
+﻿@model Goggles.Models.Item
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<span style="margin-left:30px;">
+    <a href="/StoreManager" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-arrow-left"></span> Back To Admin Pannel
+    </a>
+</span>
+<div style="margin:30px;">
+    <h2>Delete</h2>
+
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Producer.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Producer.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ItemArtUrl)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ItemArtUrl)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-danger" /> 
+                <input type="button" class="btn" data-dismiss="modal" aria-hidden="true" value="Close" onclick="@("window.location.href='" + @Url.Action("Index", "StoreManager") + "'");" />
+            </div>
+        }
+    </div>
+</div>

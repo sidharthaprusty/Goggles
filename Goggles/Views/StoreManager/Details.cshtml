@@ -1,0 +1,82 @@
+﻿@model Goggles.Models.Item
+
+@{
+	ViewBag.Title = "Details";
+	Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div style="margin:30px;">
+    <center>
+        <h2>Details</h2>
+    </center>
+    <span>
+        <a href="/StoreManager" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-arrow-left"></span> Back To Admin Pannel
+        </a>
+        @*@Html.ActionLink("Back to Admin Controll Pannel", "Index")*@
+    </span>
+    <hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.Category.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Category.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Producer.Name)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Producer.Name)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Title)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Title)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Price)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Price)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.ItemArtUrl)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.ItemArtUrl)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.description)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.description)
+		</dd>
+
+	</dl>
+	<p>
+		
+		<span>
+			<a href="/StoreManager/Edit/@Model.ItemId" class="btn btn-warning">
+				<span class="glyphicon glyphicon-arrow-left"></span> Edit Item
+			</a>
+			@*@Html.ActionLink("Back to Admin Controll Pannel", "Index")*@
+		</span>
+		 
+	</p>
+</div>
+

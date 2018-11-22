@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Goggles.Models.Item>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!--/shop-->
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+    <div class="container-fluid">
+        <div class="inner-sec-shop px-lg-4 px-3">
+            @*<h3 class="tittle-w3layouts my-lg-4 mt-3">@Model.</h3>*@
+            <div class="row">
+                <!--/product right-->
+                <div>
+                    <div class="wrapper_top_shop">
+                        <div class="row">
+                            <div class="col-md-6 shop_left">
+                                <img src="~/Content/images/banner3.jpg" alt="">
+                                <h6>40% off</h6>
+                            </div>
+                            <div class="col-md-6 shop_right">
+                                <img src="~/Content/images/banner4.jpg" alt="">
+                                <h6>50% off</h6>
+                            </div>
+
+                        </div>
+                        <div class="row">
+                            <!-- /womens -->
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-md-3 product-men women_two shop-gd">
+                                    <div class="product-googles-info googles">
+                                        <div class="men-pro-item">
+                                            <div class="men-thumb-item">
+                                                <img src="@item.ItemArtUrl" class="img-fluid" alt="">
+                                                <div class="men-cart-pro">
+                                                    <div class="inner-men-cart-pro">
+                                                        @Html.ActionLink("Quick View", "Details", "Store", new { id = item.ItemId }, new { @class = "link-product-add-cart" })
+                                                    </div>
+                                                </div>
+                                                <span class="product-new-top">New</span>
+                                            </div>
+                                            <div class="item-info-product">
+                                                <div class="info-product-price">
+                                                    <div class="grid_meta">
+                                                        <div class="product_price">
+                                                            <h4>
+                                                                @Html.ActionLink(item.Title, "Details", "Store", new { id = item.ItemId }, null)
+                                                            </h4>
+                                                            <div class="grid-price mt-2">
+                                                                <span class="fas fa-rupee-sign" style="font-size:24px"> @item.Price</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="googles single-item hvr-outline-out">
+                                                        <form action="#" method="post">
+                                                            <input type="hidden" name="cmd" value="_cart">
+                                                            <input type="hidden" name="add" value="1">
+                                                            <input type="hidden" name="googles_item" value=@item.Title>
+                                                            <input type="hidden" name="amount" value=@item.Price>
+                                                            <button type="submit" class="googles-cart pgoogles-cart">
+                                                                <i class="fas fa-cart-plus"></i>
+                                                            </button>
+                                                        </form>
+
+                                                    </div>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                        <hr />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

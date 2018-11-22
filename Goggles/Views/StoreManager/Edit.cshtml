@@ -1,0 +1,83 @@
+﻿@model Goggles.Models.Item
+
+@{
+    ViewBag.Title = "Edit Item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<center>
+    <h2>Edit Item Pannel</h2>
+</center>
+<section class="banner-bottom-wthreelayouts py-lg-5 py-3">
+    <span style="margin:200px;">
+        <a href="/StoreManager" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-arrow-left"></span> Back To Admin Pannel
+        </a>
+        @*@Html.ActionLink("Back to Admin Controll Pannel", "Index")*@
+    </span>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+             <div class="container">
+
+        <hr />
+        @Html.ValidationSummary(true)
+        @Html.HiddenFor(model => model.ItemId)
+        <div class="form-group">
+            @Html.LabelFor(model => model.CategoryId, "Category", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("CategoryId", String.Empty)
+                @Html.ValidationMessageFor(model => model.CategoryId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ProducerId, "Producer", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ProducerId", String.Empty)
+                @Html.ValidationMessageFor(model => model.ProducerId)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control"} })
+                @Html.ValidationMessageFor(model => model.Title)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ItemArtUrl, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ItemArtUrl, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ItemArtUrl)
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.description, new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+               @Html.TextAreaFor(model => model.description, new { htmlAttributes = new { @class = "form-control", @rows = 10, @cols = 400 } })
+               @Html.ValidationMessageFor(model => model.description)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Update" class="btn btn-primary" />
+                <input type="button" class="btn" data-dismiss="modal" aria-hidden="true" value="Close" onclick="@("window.location.href='" + @Url.Action("Index", "StoreManager") + "'");" />
+            </div>
+        </div>
+    </div>
+        }
+        
+</section>
+    
